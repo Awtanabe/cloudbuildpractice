@@ -5,6 +5,10 @@ steps:
     - '-t'
     - 'us-west2-docker.pkg.dev/$PROJECT_ID/prisma-source/cloudbuildpractice-image:tag1'
     - '.'
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    - 'push'
+    - 'us-west2-docker.pkg.dev/$PROJECT_ID/prisma-source/cloudbuildpractice-image:tag1'
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
   args:
