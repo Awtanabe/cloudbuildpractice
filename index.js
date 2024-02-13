@@ -9,6 +9,7 @@ app.get('/', (req, res) => {
 })
 
 console.log('hoge')
+console.log('hoge')
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
