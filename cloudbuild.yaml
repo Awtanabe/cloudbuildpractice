@@ -1,0 +1,17 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    - 'build'
+    - '-t'
+    - 'us-west2-docker.pkg.dev/$PROJECT_ID/prisma-source/cloudbuildpractice-image:tag1'
+    - '.'
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - >
+      gcloud run deploy prisma-rest-api 
+      --image us-west2-docker.pkg.dev/$PROJECT_ID/prisma-source/cloudbuildpractice-image:tag1 
+      --region asia-northeast1 
+      --platform managed
+      --allow-unauthenticated 
